@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Layout } from 'antd'
+import Spinner from './components/app/Spinner'
+import { UsersPage, UserPage } from './pages'
+import './App.css'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Layout style={{ margin: '30px' }}>
+          <Switch>
+            <Route
+              path={'/'}
+              exact
+              name="users"
+              component={UsersPage}
+            />
+            <Route
+              path={'/user/:id'}
+              name="user"
+              component={UserPage}
+            />
+          </Switch>
+          <Spinner />
+        </Layout>
+      </BrowserRouter>
+    </>
+  )
 }
 
 export default App;
