@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd'
-import Spinner from './components/app/Spinner'
+import { Spinner } from './components'
 import { UsersPage, UserPage } from './pages'
 import './App.css'
 

@@ -1,7 +1,6 @@
 import React from 'react'
-import UserComponent from '../components/UserComponent'
 import { useLocation } from 'react-router-dom'
-import EditForm from '../components/EditForm'
+import { EditForm, UserComponent } from '../components'
 const UserPage = (props) => {
   let location = useLocation()
 

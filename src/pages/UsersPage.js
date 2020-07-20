@@ -1,6 +1,5 @@
 import React from 'react'
-import UsersComponent from '../components/UsersComponent'
-import UsersForm from '../components/UsersForm'
+import { UsersComponent, UsersForm } from '../components'
 
 const usersPage = (props) => <>
   <UsersForm />
