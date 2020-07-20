@@ -6,7 +6,7 @@ import { postUserRequested } from '../redux/users/actions'
 function UsersForm() {
   const layout = { labelCol: { span: 8 }, wrapperCol: { span: 8 } }
   const tailLayout = { wrapperCol: { offset: 8, span: 16 } }
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
 
   const dispatch = useDispatch()
   const onFinish = values => {

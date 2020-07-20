@@ -6,7 +6,7 @@ import {
   post,
   update,
   remove
-} from '../api';
+} from '../api'
 
 import {
   fetchUsersSucceeded,
@@ -31,7 +31,7 @@ import {
   DELETE_USER_REQUESTED,
 } from '../redux/users/constants'
 
-import { handleError } from './error';
+import { handleError } from './error'
 
 const fetchUsersSaga = function* () {
   try {
@@ -42,7 +42,7 @@ const fetchUsersSaga = function* () {
     yield handleError(error)
     yield put(fetchUsersFailed(error))
   } finally {
-    yield put(stopLayoutSpinner(FETCH_USERS_REQUESTED));
+    yield put(stopLayoutSpinner(FETCH_USERS_REQUESTED))
   }
 }
 
@@ -55,7 +55,7 @@ const fetchUserSaga = function* ({ payload }) {
     yield handleError(error)
     yield put(fetchUserFailed(error))
   } finally {
-    yield put(stopLayoutSpinner(FETCH_USER_REQUESTED));
+    yield put(stopLayoutSpinner(FETCH_USER_REQUESTED))
   }
 }
 
@@ -68,7 +68,7 @@ const postUserSaga = function* ({ payload }) {
     yield handleError(error)
     yield put(postUserFailed(error))
   } finally {
-    yield put(stopLayoutSpinner(POST_USERS_REQUESTED));
+    yield put(stopLayoutSpinner(POST_USERS_REQUESTED))
   }
 }
 
@@ -80,14 +80,14 @@ const updateUserSaga = function* ({ payload }) {
     notification.success({
       message: 'Success',
       description: `user with id ${payload.id} has been succesfully updated`
-    });
+    })
   } catch (error) {
-    yield handleError(error);
-    yield put(updateUserFailed(error));
+    yield handleError(error)
+    yield put(updateUserFailed(error))
   } finally {
-    yield put(stopLayoutSpinner(UPDATE_USER_REQUESTED));
+    yield put(stopLayoutSpinner(UPDATE_USER_REQUESTED))
   }
-};
+}
 
 const deleteUserSaga = function* ({ payload }) {
   try {
@@ -97,14 +97,14 @@ const deleteUserSaga = function* ({ payload }) {
     notification.success({
       message: 'Success',
       description: `user with id ${payload.id} has been succesfully deleted`
-    });
+    })
   } catch (error) {
-    yield handleError(error);
-    yield put(deleteUserFailed(error));
+    yield handleError(error)
+    yield put(deleteUserFailed(error))
   } finally {
-    yield put(stopLayoutSpinner(DELETE_USER_REQUESTED));
+    yield put(stopLayoutSpinner(DELETE_USER_REQUESTED))
   }
-};
+}
 
 
 
@@ -115,4 +115,4 @@ export default [
   takeLatest(UPDATE_USER_REQUESTED, updateUserSaga),
   takeLatest(POST_USERS_REQUESTED, postUserSaga),
   takeLatest(DELETE_USER_REQUESTED, deleteUserSaga)
-];
+]

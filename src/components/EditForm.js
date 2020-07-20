@@ -16,7 +16,7 @@ function EditForm() {
     dispatch(fetchUserRequested({ id }))
     setTimeout(() => {
       form.resetFields()
-    }, 500);
+    }, 500)
   }, [dispatch, form, id])
 
   const onFinish = values => {

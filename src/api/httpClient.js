@@ -4,7 +4,7 @@ const SERVER_URL = 'http://77.120.241.80:8911'
 const CONTENT_TYPE = {
   APPLICATION_JSON: 'application/json',
   MULTIPART: 'multipart/form-data',
-};
+}
 
 const request = async ({
   headers = {},
@@ -18,7 +18,7 @@ const request = async ({
       ? `${SERVER_URL}/api/${url}?${Object.keys(params)
         .reduce((acc, key) => `${acc}&${key}=${params[key]}`, '')
         .slice(1)}`
-      : `${SERVER_URL}/api/${url}`;
+      : `${SERVER_URL}/api/${url}`
 
     const configs = {
       headers: {
@@ -27,26 +27,26 @@ const request = async ({
         ...headers
       },
       method
-    };
+    }
 
     if (method !== 'get' && method !== 'delete') {
       if (headers['Content-Type'] === CONTENT_TYPE.MULTIPART) {
-        configs.data = body;
-        delete configs.headers;
+        configs.data = body
+        delete configs.headers
       } else {
-        configs.data = body;
+        configs.data = body
       }
     }
 
-    const response = await axios(urlWithQuery, configs);
+    const response = await axios(urlWithQuery, configs)
 
     if (response.status >= 300) {
-      throw response;
+      throw response
     }
 
-    return response.data || response;
+    return response.data || response
   } catch (ex) {
-    throw ex && ex.response ? ex.response : ex;
+    throw ex && ex.response ? ex.response : ex
   }
 }
 

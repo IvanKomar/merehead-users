@@ -17,7 +17,7 @@ export default function configureStore() {
     composer(
       applyMiddleware(...middlewares)
     )
-  );
+  )
 
   sagaMiddleware.run(rootSaga)
 
